@@ -1,10 +1,11 @@
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from './routes/index'
 
 function App() {
-
   return (
-    <>
-      <span>teste</span>
-    </>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
 
