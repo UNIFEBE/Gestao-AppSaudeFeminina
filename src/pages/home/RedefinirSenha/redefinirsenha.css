@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.reset-container {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f3ff 0%,
+      #fdf2f8 100%
+    );
+}
+
+/* CARD */
+
+.reset-card {
+  width: 100%;
+  max-width: 420px;
+
+  background: rgba(255,255,255,0.92);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 28px;
+
+  padding: 40px;
+
+  box-shadow:
+    0 10px 40px rgba(124,58,237,0.08),
+    0 2px 12px rgba(0,0,0,0.04);
+}
+
+/* HEADER */
+
+.reset-header {
+  text-align: center;
+
+  margin-bottom: 32px;
+}
+
+.reset-header h1 {
+  font-size: 34px;
+
+  color: #7c3aed;
+
+  font-weight: 700;
+}
+
+.reset-header p {
+  margin-top: 12px;
+
+  color: #6b7280;
+
+  line-height: 1.5;
+}
+
+/* INPUT */
+
+.input-group {
+  height: 56px;
+
+  background: #f9fafb;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 18px;
+
+  transition: 0.2s;
+}
+
+.input-group:focus-within {
+  border-color: #7c3aed;
+
+  background: white;
+
+  box-shadow: 0 0 0 4px rgba(124,58,237,0.08);
+}
+
+.input-group svg {
+  color: #9ca3af;
+}
+
+.input-group input {
+  flex: 1;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: 15px;
+}
+
+/* ACTIONS */
+
+.actions {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+/* BUTTONS */
+
+.actions button {
+  flex: 1;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+/* PRIMARY */
+
+.primary-btn {
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #9333ea
+    );
+
+  color: white;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 20px rgba(124,58,237,0.2);
+}
+
+/* SECONDARY */
+
+.secondary-btn {
+  background: #f3f4f6;
+
+  color: #374151;
+}
+
+.secondary-btn:hover {
+  background: #e5e7eb;
+}

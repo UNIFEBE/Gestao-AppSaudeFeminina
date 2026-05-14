@@ -6,7 +6,7 @@ import {
   Users,
   CalendarDays,
   AlertTriangle,
-  HeartPulse
+  Baby 
 } from 'lucide-react'
 
 import './styles.css'
@@ -14,30 +14,27 @@ import './styles.css'
 const patients = [
   {
     id: 1,
-    name: 'Maria Clara',
-    age: 29,
-    condition: 'SOP',
-    lastVisit: '12/04/2025',
-    risk: 'Médio',
-    status: 'Ativa'
+    nome: 'Maria Clara',
+    idade: 29,
+    objetivo: 'Engravidar',
+    ultimoPeriodo: '12/04/2025',
+    ciclo: 'Regular'
   },
   {
     id:2,
-    name: 'Fernanda Lima',
-    age: 35,
-    condition: 'Gestante',
-    lastVisit: '02/05/2025',
-    risk: 'Baixo',
-    status: 'Ativa'
+    nome: 'Fernanda Lima',
+    idade: 35,
+    objetivo: 'Monitorar ciclo',
+    ultimoPeriodo: '02/05/2025',
+    ciclo: 'Irregular'
   },
   {
     id:3,
-    name: 'Ana Souza',
-    age: 31,
-    condition: 'Endometriose',
-    lastVisit: '18/03/2025',
-    risk: 'Alto',
-    status: 'Acompanhamento'
+    nome: 'Ana Souza',
+    idade: 31,
+    objetivo: 'Acompanhar sintomas',
+    ultimoPeriodo: '18/03/2025',
+    ciclo: 'Regular'
   }
 ]
 
@@ -82,42 +79,48 @@ export default function Home() {
       {/* STATS */}
 
       <section className="stats-grid">
-        <div className="stat-card">
-          <Users size={28} />
 
-          <div>
-            <span>Pacientes Ativas</span>
-            <strong>1.248</strong>
-          </div>
+      {/* PACIENTES ATIVAS (mantém) */}
+      <div className="stat-card">
+        <Users size={28} />
+      
+        <div>
+          <span>Pacientes Ativas</span>
+          <strong>1.248</strong>
         </div>
-
-        <div className="stat-card">
-          <CalendarDays size={28} />
-
-          <div>
-            <span>Consultas Hoje</span>
-            <strong>24</strong>
-          </div>
+      </div>
+      
+      {/* TENTANDO ENGRAVIDAR (novo) */}
+      <div className="stat-card">
+        <Baby size={28} />
+      
+        <div>
+          <span>Tentando Engravidar</span>
+          <strong>86</strong>
         </div>
-
-        <div className="stat-card">
-          <HeartPulse size={28} />
-
-          <div>
-            <span>Gestantes</span>
-            <strong>82</strong>
-          </div>
+      </div>
+      
+      {/* CONSULTAS HOJE (mantém) */}
+      <div className="stat-card">
+        <CalendarDays size={28} />
+      
+        <div>
+          <span>Consultas Hoje</span>
+          <strong>24</strong>
         </div>
-
-        <div className="stat-card alert">
-          <AlertTriangle size={28} />
-
-          <div>
-            <span>Alertas Clínicos</span>
-            <strong>12</strong>
-          </div>
+      </div>
+      
+      {/* ALERTAS CLÍNICOS (mantém) */}
+      <div className="stat-card alert">
+        <AlertTriangle size={28} />
+      
+        <div>
+          <span>Alertas Clínicos</span>
+          <strong>12</strong>
         </div>
-      </section>
+      </div>
+      
+    </section>
 
       {/* ALERTS */}
 
@@ -144,8 +147,6 @@ export default function Home() {
       <section className="table-section">
         <div className="table-header">
           <h2>Pacientes</h2>
-
-          <button>Nova Paciente</button>
         </div>
 
         <table>
@@ -153,38 +154,59 @@ export default function Home() {
             <tr>
               <th>Paciente</th>
               <th>Idade</th>
-              <th>Condição</th>
-              <th>Última consulta</th>
-              <th>Risco</th>
-              <th>Status</th>
+              <th>Objetivo</th>
+              <th>Última menstruação</th>
+              <th>Ciclo</th>
+              {/* <th>Status</th> */}
             </tr>
           </thead>
 
           <tbody>
-            {patients.map((patient) => (
-              // <tr key={patient.name}>
-              <tr
-                key={patient.id}
-                className="table-row"
-                onClick={() => navigate(`/paciente/${patient.id}`)}
-              >
-                <td>{patient.name}</td>
-                <td>{patient.age}</td>
-                <td>
-                  <span className="condition">
-                    {patient.condition}
-                  </span>
-                </td>
-                <td>{patient.lastVisit}</td>
-                <td>{patient.risk}</td>
-                <td>
-                  <span className="status">
-                    {patient.status}
-                  </span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+             {patients.map((patient) => (
+               <tr
+                 key={patient.id}
+                 className="table-row"
+                 onClick={() =>
+                   navigate(`/paciente/${patient.id}`)
+                 }
+               >
+                 <td className="patient-cell">               
+                  <span>{patient.nome}</span>
+                 </td>
+               
+                 <td>{patient.idade} anos</td>
+               
+                 <td>
+                   <span
+                     className={`objective-badge ${
+                       patient.objetivo === 'Engravidar'
+                         ? 'pregnancy'
+                         : patient.objetivo ===
+                           'Monitorar ciclo'
+                         ? 'monitor'
+                         : 'symptoms'
+                     }`}
+                   >
+                     {patient.objetivo}
+                   </span>
+                 </td>
+                   
+                 <td>{patient.ultimoPeriodo}</td>
+                   
+                 <td>
+                   <span
+                     className={`cycle-badge ${
+                       patient.ciclo === 'Regular'
+                         ? 'regular'
+                         : 'irregular'
+                     }`}
+                   >
+                     {patient.ciclo}
+                   </span>
+                 </td>
+               </tr>
+             ))}
+            </tbody>
         </table>
       </section>
     </Masterpage>

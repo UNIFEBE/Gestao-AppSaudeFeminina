@@ -7,39 +7,55 @@
 body {
   font-family: Inter, sans-serif;
   background: #f5f7fb;
+  color: #111827;
 }
+
+/* =========================
+   APP LAYOUT
+========================= */
 
 .app-container {
   min-height: 100vh;
 }
 
-.navbar {
-  height: 80px;
+/* =========================
+   NAVBAR
+========================= */
 
-  background: white;
+.navbar {
+  height: 76px;
+
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 40px;
+  padding: 0 32px;
 
   border-bottom: 1px solid #e5e7eb;
 
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
 }
+
+/* LOGO */
 
 .logo h2 {
   color: #7c3aed;
-  font-size: 28px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
+
+/* NAV LINKS */
 
 .navbar nav {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 10px;
 }
 
 .navbar nav a {
@@ -49,38 +65,212 @@ body {
 
   text-decoration: none;
 
-  color: #374151;
+  color: #4b5563;
 
-  padding: 10px 16px;
+  padding: 10px 14px;
 
   border-radius: 10px;
 
-  transition: 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: all 0.2s ease;
 }
 
 .navbar nav a:hover {
-  background: #ede9fe;
+  background: #f3f0ff;
   color: #7c3aed;
+  transform: translateY(-1px);
 }
+
+/* =========================
+   ACTIONS (ICONS + PROFILE)
+========================= */
 
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .navbar-actions svg {
   color: #6b7280;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-.navbar-actions img {
-  width: 42px;
-  height: 42px;
+.navbar-actions svg:hover {
+  color: #7c3aed;
+  transform: scale(1.05);
+}
+
+/* =========================
+   PROFILE AREA
+========================= */
+
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* AVATAR */
+.avatar-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+.avatar-button img {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border: 2px solid #ede9fe;
+
+  transition: 0.2s ease;
+}
+
+.avatar-button:hover img {
+  transform: scale(1.05);
+  border-color: #7c3aed;
+}
+
+/* STATUS DOT */
+.status-dot {
+  width: 9px;
+  height: 9px;
+
+  background: #22c55e;
+
+  border-radius: 50%;
+
+  position: absolute;
+
+  bottom: 2px;
+  right: 2px;
+
+  border: 2px solid white;
+}
+
+/* =========================
+   DROPDOWN (MELHORADO)
+========================= */
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 52px;
+
+  width: 240px;
+
+  background: white;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+
+  padding: 12px;
+
+  z-index: 999;
+
+  animation: dropdownIn 0.15s ease-out;
+}
+
+/* HEADER DO DROPDOWN */
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px;
+  border-radius: 10px;
+
+  background: #f9fafb;
+
+  margin-bottom: 10px;
+}
+
+.dropdown-header img {
+  width: 38px;
+  height: 38px;
 
   border-radius: 50%;
 }
 
+.dropdown-header strong {
+  display: block;
+  font-size: 14px;
+  color: #111827;
+}
+
+.dropdown-header span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* DIVIDER */
+.dropdown-divider {
+  height: 1px;
+  background: #e5e7eb;
+
+  margin: 10px 0;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  width: 100%;
+
+  background: #fef2f2;
+  color: #dc2626;
+
+  border: none;
+
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #fee2e2;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   PAGE CONTENT
+========================= */
+
 .page-content {
   padding: 32px 40px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
