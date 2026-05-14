@@ -1,142 +1,100 @@
-.patient-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+.details-header {
   margin-bottom: 32px;
 }
 
-.patient-profile {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.patient-profile img {
-  width: 90px;
-  height: 90px;
-
-  border-radius: 50%;
-}
-
-.patient-profile h1 {
-  font-size: 32px;
+.details-header h1 {
+  font-size: 34px;
   color: #111827;
 }
 
-.patient-profile p {
-  color: #6b7280;
+.details-header p {
   margin-top: 8px;
+  color: #6b7280;
 }
 
-.patient-header button {
-  background: #7c3aed;
-  color: white;
+/* CARD */
 
-  border: 0;
-
-  padding: 14px 20px;
-
-  border-radius: 12px;
-
-  cursor: pointer;
-}
-
-.patient-stats {
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-
-  gap: 24px;
-
-  margin-bottom: 32px;
-}
-
-.info-card {
+.details-card {
   background: white;
 
-  padding: 24px;
+  border-radius: 24px;
 
-  border-radius: 20px;
+  padding: 32px;
 
-  display: flex;
-  gap: 16px;
-
-  align-items: center;
-
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
 }
 
-.info-card svg {
-  color: #7c3aed;
+/* SECTION */
+
+.section-title {
+  margin-bottom: 24px;
 }
 
-.info-card span {
-  color: #6b7280;
-}
-
-.info-card strong {
-  display: block;
-  margin-top: 6px;
-
+.section-title h2 {
+  font-size: 20px;
   color: #111827;
 }
+
+.margin-top {
+  margin-top: 42px;
+}
+
+/* GRID */
 
 .details-grid {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
-  gap: 24px;
+  gap: 22px;
 }
 
-.card {
-  background: white;
+/* FIELD */
 
-  border-radius: 20px;
-
-  padding: 24px;
-
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-}
-
-.card h2 {
-  margin-bottom: 24px;
-}
-
-.timeline {
+.field {
   display: flex;
   flex-direction: column;
-  gap: 18px;
 }
 
-.timeline-item span {
-  color: #7c3aed;
+.field label {
   font-size: 14px;
-  font-weight: bold;
-}
 
-.timeline-item p {
-  margin-top: 6px;
-  color: #374151;
-}
-
-.exam-item {
-  display: flex;
-  gap: 14px;
-
-  margin-bottom: 18px;
-}
-
-.exam-item svg {
-  color: #7c3aed;
-}
-
-.exam-item p {
   color: #6b7280;
-  margin-top: 4px;
+
+  margin-bottom: 8px;
+
+  font-weight: 500;
 }
 
-.full {
-  grid-column: 1 / -1;
+.field input {
+  height: 52px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  padding: 0 16px;
+
+  background: #f9fafb;
+
+  color: #111827;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: 0.2s;
+}
+
+/* READONLY STYLE */
+
+.field input:read-only {
+  cursor: default;
+}
+
+/* HOVER SUAVE */
+
+.field input:hover {
+  border-color: #d8b4fe;
+  background: #faf5ff;
 }
