@@ -85,7 +85,6 @@ import { useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard,
   Users,
-  CalendarDays,
   Settings,
   Bell
 } from 'lucide-react'
@@ -116,8 +115,6 @@ export default function Masterpage({ children }: any) {
 
         <nav>
           <Link to="/espaco-saber">Espaço saber</Link>
-          {/* <Link to="/usuarios">Usuárias</Link> */}
-          <Link to="/consultas">Consultas</Link>
         </nav>
 
         {/* PERFIL */}

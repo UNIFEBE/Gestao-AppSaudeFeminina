@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from '../pages/home/home/homepage'
 import DetalhesPessoa from '../pages/home/DetalhesPessoa/detalhespessoa'
 import Login from '../pages/home/Login/login'
-import RedefinirSenha from '../pages/home/RedefinirSenha/redefinirsenha'
+import Cadastro from '../pages/home/Cadastro/cadastro'
 import EspacoSaber from '../pages/home/EspacoSaber/espacosaber'
 
 
@@ -18,8 +18,8 @@ export default function AppRoutes() {
         />
 
         <Route
-          path="/redefinir-senha"
-          element={<RedefinirSenha />}
+          path="/cadastro"
+          element={<Cadastro />}
         />
 
         <Route
