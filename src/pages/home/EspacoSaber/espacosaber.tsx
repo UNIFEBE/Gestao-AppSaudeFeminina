@@ -4,7 +4,7 @@ import Editor from './Editor'
 
 import './espacosaber.css'
 
-const API_URL = 'https://localhost:7252/api/artigos'
+const API_URL = '/api/artigos'
 
 type Categoria = {
   id: string
@@ -43,6 +43,11 @@ export default function EspacoSaber() {
   const [editingId, setEditingId] = useState<string | null>(null)
 
   const [erro, setErro] = useState('')
+  const [filtroAtivos, setFiltroAtivos] = useState(true)
+
+  const artigosFiltrados = filtroAtivos
+    ? artigos.filter((a) => a.publicado)
+    : artigos
 
   useEffect(() => {
     fetchCategorias()
@@ -223,18 +228,44 @@ export default function EspacoSaber() {
 
           {/* LISTA */}
           <div className="list-card">
-            <h2>Artigos</h2>
+            <div className="list-header">
+              <h2>Artigos</h2>
+              <div className="filtro-status">
+                <button
+                  className={`filtro-btn ${filtroAtivos ? 'ativo' : ''}`}
+                  onClick={() => setFiltroAtivos(true)}
+                >
+                  Ativos
+                </button>
+                <button
+                  className={`filtro-btn ${!filtroAtivos ? 'ativo' : ''}`}
+                  onClick={() => setFiltroAtivos(false)}
+                >
+                  Todos
+                </button>
+              </div>
+            </div>
 
             {loading && <p>Carregando...</p>}
 
-            {!loading && artigos.length === 0 && (
-              <p className="empty-msg">Nenhum artigo cadastrado.</p>
+            {!loading && artigosFiltrados.length === 0 && (
+              <p className="empty-msg">
+                {filtroAtivos ? 'Nenhum artigo ativo.' : 'Nenhum artigo cadastrado.'}
+              </p>
             )}
 
-            {artigos.map((item) => (
-              <div className="content-item" key={item.id}>
+            {artigosFiltrados.map((item) => (
+              <div
+                className={`content-item ${!item.publicado ? 'inativo' : ''}`}
+                key={item.id}
+              >
                 <div>
-                  <strong>{item.titulo}</strong>
+                  <div className="item-titulo-row">
+                    <strong>{item.titulo}</strong>
+                    {!item.publicado && (
+                      <span className="badge-inativo">Inativo</span>
+                    )}
+                  </div>
                   <span>{item.categoriaNome}</span>
                   <p>{item.resumo}</p>
                 </div>

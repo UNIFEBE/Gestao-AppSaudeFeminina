@@ -361,3 +361,74 @@
 .actions button:hover {
   transform: scale(1.05);
 }
+
+/* =========================
+   FILTRO DE STATUS
+========================= */
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.filtro-status {
+  display: flex;
+  gap: 6px;
+}
+
+.filtro-btn {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filtro-btn.ativo {
+  background: #7c3aed;
+  border-color: #7c3aed;
+  color: white;
+}
+
+.filtro-btn:hover:not(.ativo) {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* =========================
+   ARTIGO INATIVO
+========================= */
+
+.content-item.inativo {
+  opacity: 0.55;
+  border-color: #e5e7eb;
+  background: #f9fafb;
+}
+
+.content-item.inativo:hover {
+  opacity: 0.75;
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.item-titulo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-inativo {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9ca3af;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 2px 8px;
+}
